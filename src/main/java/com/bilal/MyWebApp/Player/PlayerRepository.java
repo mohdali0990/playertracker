@@ -1,7 +1,10 @@
 package com.bilal.MyWebApp.Player;
 
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PlayerRepository {
+public interface PlayerRepository extends CrudRepository<Player,Integer> {
+
+
 }

@@ -9,19 +9,20 @@ import java.util.List;
 @Service
 public class PlayerService {
 
+    @Autowired
+    private PlayerRepository playerRepository;
+
     List<Player>list= new ArrayList<>();
 
 
     public PlayerService() {
-        System.out.println("Service layer is working");
-        list.add(new Player(1,"bilal"));
-        list.add(new Player(2,"faraz"));
-        list.add(new Player(3,"saad"));
     }
 
     //Getting/returning all the players.
     public List<Player>getAllPlayers(){
-        return list;
+        List<Player>playerList=new ArrayList<>();
+        playerRepository.findAll().forEach(playerList::add);
+        return playerList;
     }
 
     //Get 1 player using number
@@ -36,7 +37,8 @@ public class PlayerService {
 
     //Save a player
     public void savePlayer(Player player){
-      this.list.add(player);
+
+       playerRepository.save(player);
     }
 
     //update player
@@ -52,7 +54,7 @@ public class PlayerService {
     //remove player
 
     public void deletePlayer(int id){
-     list.remove(id);
+     playerRepository.deleteById(id);
     }
 
 }
