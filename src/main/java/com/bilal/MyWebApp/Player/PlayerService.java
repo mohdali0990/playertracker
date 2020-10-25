@@ -13,6 +13,7 @@ public class PlayerService {
     private PlayerRepository playerRepository;
 
     List<Player>list= new ArrayList<>();
+    
 
 
     public PlayerService() {
@@ -56,5 +57,11 @@ public class PlayerService {
     public void deletePlayer(int id){
      playerRepository.deleteById(id);
     }
+    public void test() {
 
-}
+
+    }
+
+   }
+
+
