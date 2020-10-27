@@ -20,8 +20,10 @@ public class PlayerService {
     }
 
     //Getting/returning all the players.
-    public List<Player>getAllPlayers(){
-        List<Player>playerList=new ArrayList<>();
+
+    public List<Player> getAllPlayers(){
+
+        List<Player> playerList=new ArrayList<>();
         playerRepository.findAll().forEach(playerList::add);
         return playerList;
     }
