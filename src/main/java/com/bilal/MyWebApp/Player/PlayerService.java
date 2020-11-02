@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PlayerService {
@@ -12,7 +13,7 @@ public class PlayerService {
     @Autowired
     private PlayerRepository playerRepository;
 
-    List<Player>list= new ArrayList<>();
+
     
 
 
@@ -30,10 +31,10 @@ public class PlayerService {
 
     //Get 1 player using number
     public Player getPlayer(int id) {
-        for (Player p : list) {
-            if (p.getId() == id) {
-                return p;
-            }
+        Optional<Player>optionalPlayer= playerRepository.findById(id);
+        playerRepository.findById(id);
+        if(optionalPlayer.isPresent()) {
+            return optionalPlayer.get();
         }
         return null;
     }
@@ -45,15 +46,15 @@ public class PlayerService {
     }
 
     //update player
-    public void updatePlayer(Player player){
-        for (Player p : list) {
-            if(p.getId()==player.getId()){
-                p.setPlayerName(player.getPlayerName());
-            }
-
-        }
-
-    }
+//    public void updatePlayer(Player player){
+//        for (Player p : list) {
+//            if(p.getId()==player.getId()){
+//                p.setPlayerName(player.getPlayerName());
+//            }
+//
+//        }
+//
+//    }
     //remove player
 
     public void deletePlayer(int id){

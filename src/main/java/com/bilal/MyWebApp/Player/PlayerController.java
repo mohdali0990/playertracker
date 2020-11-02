@@ -33,10 +33,10 @@ public class PlayerController {
         playerService.savePlayer(player);
     }
 
-    @RequestMapping (value ="/players/update",method = RequestMethod.PUT)
-    public void updatePlayer(@RequestBody Player player){
-        playerService.updatePlayer(player);
-    }
+//    @RequestMapping (value ="/players/update",method = RequestMethod.PUT)
+//    public void updatePlayer(@RequestBody Player player){
+//        playerService.updatePlayer(player);
+//    }
 
     @RequestMapping(value ="/players/delete/{id}",method = RequestMethod.DELETE)
     public void deletePlayer(@PathVariable int id){
