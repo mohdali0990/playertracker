@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@RequestMapping(value="/players")
 @RestController
 public class PlayerController {
 
@@ -13,12 +14,13 @@ public class PlayerController {
     private PlayerService playerService;
 
 
-    @RequestMapping(value ="/checking")
+    @RequestMapping(value = "/checking")
     public String testing(){
         return"this is working alhumdulilah";
     }
 
-    @RequestMapping(value = "/players",method = RequestMethod.GET)
+
+    @GetMapping(path = "/givemealltheplayers")
     public List<Player>allPlayers(){
         return playerService.getAllPlayers();
     }
@@ -33,12 +35,11 @@ public class PlayerController {
         playerService.savePlayer(player);
     }
 
-//    @RequestMapping (value ="/players/update",method = RequestMethod.PUT)
-//    public void updatePlayer(@RequestBody Player player){
-//        playerService.updatePlayer(player);
-//    }
-
-    @RequestMapping(value ="/players/delete/{id}",method = RequestMethod.DELETE)
+    @RequestMapping (value = "/players/update",method = RequestMethod.PUT)
+    public void updatePlayer(@RequestBody Player player){
+        playerService.updatePlayer(player);
+    }
+    @RequestMapping(value = "/players/delete/{id}",method = RequestMethod.DELETE)
     public void deletePlayer(@PathVariable int id){
         playerService.deletePlayer(id);
     }

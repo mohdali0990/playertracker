@@ -14,9 +14,6 @@ public class PlayerService {
     private PlayerRepository playerRepository;
 
 
-    
-
-
     public PlayerService() {
     }
 
@@ -41,28 +38,18 @@ public class PlayerService {
 
     //Save a player
     public void savePlayer(Player player){
-
-       playerRepository.save(player);
+        playerRepository.save(player);
     }
 
     //update player
-//    public void updatePlayer(Player player){
-//        for (Player p : list) {
-//            if(p.getId()==player.getId()){
-//                p.setPlayerName(player.getPlayerName());
-//            }
-//
-//        }
-//
-//    }
-    //remove player
+    public void updatePlayer(Player player){
+       playerRepository.save(player);
+        }
 
+
+    //remove player
     public void deletePlayer(int id){
      playerRepository.deleteById(id);
-    }
-    public void test() {
-
-
     }
 
    }
